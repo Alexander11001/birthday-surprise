@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>★ Угадайте у кого ДР?! ★</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+
+  <div class="ie-bar">
+    <span class="spin-at" aria-hidden="true">@</span>
+    <span class="blink-hard">Лучше всего смотреть в Internet Explorer 6.0</span>
+    <span class="visitor">Вы посетитель № <span id="visitorNum">000042</span></span>
+  </div>
+
+  <header class="banner">
+    <marquee scrollamount="18" direction="left" behavior="scroll">
+      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ BLONDIE — MARIA ★ НЕ ЗАКРЫВАЙ СТРАНИЦУ ★
+    </marquee>
+    <marquee scrollamount="12" direction="right" behavior="alternate" class="banner-2">
+      🔥🔥🔥 УГАДАЙ КТО 🔥🔥🔥 WWW.MARIA-BIRTHDAY.RU 🔥🔥🔥
+    </marquee>
+  </header>
+
+  <aside class="side-deco left-deco" aria-hidden="true">
+    <div class="badge spin-slow">NEW!</div>
+    <div class="flame-text">HOT</div>
+  </aside>
+  <aside class="side-deco right-deco" aria-hidden="true">
+    <div class="badge pulse">18+</div>
+    <div class="flame-text alt">WOW</div>
+  </aside>
+
+  <main class="stage">
+    <div class="popup-fake" id="welcomePopup">
+      <button type="button" class="popup-close" id="closePopup">✕</button>
+      <p class="popup-title blink-hard">ПОЗДРАВЛЯЕМ!</p>
+      <p>Вы стали <b>999 999</b>-м гостем этого сайта!</p>
+      <p class="popup-small">Нажми OK (закрой крестик) и угадай именинника</p>
+    </div>
+
+    <h1 class="title glitch fire-text" data-text="Угадайте у кого сегодня день рождения?!">
+      Угадайте у кого сегодня день рождения?!
+    </h1>
+
+    <hr class="rainbow-hr" />
+
+    <p class="subtitle wobble">
+      <span class="spin-emoji">🎁</span>
+      жми на картинку
+      <span class="spin-emoji reverse">🎂</span>
+    </p>
+
+    <div class="under-construction">
+      <span class="blink-hard">🚧</span>
+      САЙТ В РАЗРАБОТКЕ С 2004 ГОДА
+      <span class="blink-hard">🚧</span>
+    </div>
+
+    <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
+      <div class="frame-spin">
+        <div class="photo-bevel">
+          <img
+            id="mysteryImg"
+            src="assets/mystery.svg"
+            alt="Кто же именинник?"
+            class="mystery-img sparkle-hover"
+          />
+        </div>
+      </div>
+      <span class="hint blink">??? CLICK ME ???</span>
+      <span class="hint-sub zoom-text">(один клик = сюрприз)</span>
+    </button>
+
+    <div class="fake-player">
+      <span class="blink-hard">▶</span>
+      <span class="player-label">Blondie — Maria (Bootleg)</span>
+      <div class="fake-eq" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div id="reveal" class="reveal hidden" aria-live="polite">
+      <p class="reveal-text rainbow zoom-text">🎉 ЭТО ОНА!!! 🎉</p>
+      <div class="reveal-frame">
+        <img
+          id="revealImg"
+          src="assets/reveal.svg"
+          alt="Сюрприз!"
+          class="reveal-img bounce-in sparkle-hover"
+        />
+      </div>
+      <p class="maria-line shake">
+        <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
+        яяяяяю гада сии хер 🎤
+      </p>
+      <marquee class="reveal-marquee" scrollamount="10">
+        ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ BLONDIE ★ КИРПИЧИ ★ ЛЮБОВЬ ★
+      </marquee>
+    </div>
+
+    <table class="guestbook-fake" role="presentation">
+      <tr>
+        <td><a href="#" class="link-dead" onclick="return false">Гостевая книга</a></td>
+        <td><a href="#" class="link-dead" onclick="return false">Фотоальбом</a></td>
+        <td><a href="#" class="link-dead" onclick="return false">Контакты ICQ</a></td>
+      </tr>
+    </table>
+  </main>
+
+  <footer class="footer">
+    <marquee scrollamount="8" direction="left" class="footer-marquee">
+      made with 💖 FrontPage 2003 • GeoCities • ноль вкуса • 1024×768
+    </marquee>
+    <div class="web-badges">
+      <span class="badge-html">HTML</span>
+      <span class="badge-css">CSS</span>
+      <span class="badge-best">NOT VALID</span>
+    </div>
+  </footer>
+
+  <audio id="cherAudio" preload="auto" loop>
+    <source src="assets/song.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
