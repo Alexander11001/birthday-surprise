@@ -3,129 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>★ Угадайте у кого ДР?! ★</title>
+  <title>Угадайте у кого ДР?!</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="stars" aria-hidden="true"></div>
-  <div class="cursor-trail" id="cursorTrail" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
 
   <div class="ie-bar">
     <span class="spin-at" aria-hidden="true">@</span>
-    <span class="blink-hard">Лучше всего смотреть в Internet Explorer 6.0</span>
-    <span class="visitor">Вы посетитель № <span id="visitorNum">000042</span></span>
+    <span class="ie-note">Лучше всего в Internet Explorer 6.0</span>
+    <span class="visitor">Посетитель № <span id="visitorNum">000042</span></span>
   </div>
 
   <header class="banner">
-    <marquee scrollamount="18" direction="left" behavior="scroll">
-      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ MARIA ★ НЕ ЗАКРЫВАЙ СТРАНИЦУ ★
-    </marquee>
-    <marquee scrollamount="12" direction="right" behavior="alternate" class="banner-2">
-      🔥🔥🔥 УГАДАЙ КТО 🔥🔥🔥 WWW.MARIA-BIRTHDAY.RU 🔥🔥🔥
+    <marquee scrollamount="14" direction="left">
+      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ MARIA ★
     </marquee>
   </header>
 
-  <aside class="side-deco left-deco" aria-hidden="true">
-    <div class="badge spin-slow">NEW!</div>
-    <div class="flame-text">HOT</div>
-  </aside>
-  <aside class="side-deco right-deco" aria-hidden="true">
-    <div class="badge pulse">18+</div>
-    <div class="flame-text alt">WOW</div>
-  </aside>
-
   <main class="stage">
-    <div class="popup-fake" id="welcomePopup">
-      <button type="button" class="popup-close" id="closePopup">✕</button>
-      <p class="popup-title blink-hard">ПОЗДРАВЛЯЕМ!</p>
-      <p>Вы стали <b>999 999</b>-м гостем этого сайта!</p>
-      <p class="popup-small">Нажми OK (закрой крестик) и угадай именинника</p>
-    </div>
+    <div class="card">
+      <div class="popup-fake" id="welcomePopup">
+        <button type="button" class="popup-close" id="closePopup" aria-label="Закрыть">✕</button>
+        <p class="popup-title">ПОЗДРАВЛЯЕМ!</p>
+        <p>Вы <b>999 999</b>-й гость этого сайта!</p>
+        <p class="popup-small">Закрой окошко и угадай именинника</p>
+      </div>
 
-    <h1 class="title glitch fire-text" data-text="Угадайте у кого сегодня день рождения?!">
-      Угадайте у кого сегодня день рождения?!
-    </h1>
+      <h1 class="title" data-text="Угадайте у кого сегодня день рождения?!">
+        Угадайте у кого сегодня день рождения?!
+      </h1>
 
-    <hr class="rainbow-hr" />
+      <p class="subtitle">
+        <span class="spin-emoji">🎁</span>
+        жми на картинку
+        <span class="spin-emoji">🎂</span>
+      </p>
 
-    <p class="subtitle wobble">
-      <span class="spin-emoji">🎁</span>
-      жми на картинку
-      <span class="spin-emoji reverse">🎂</span>
-    </p>
-
-    <div class="under-construction">
-      <span class="blink-hard">🚧</span>
-      САЙТ В РАЗРАБОТКЕ С 2004 ГОДА
-      <span class="blink-hard">🚧</span>
-    </div>
-
-    <div class="surprise-zone" id="surpriseZone">
-      <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
-        <div class="frame-spin">
-          <div class="photo-bevel">
-            <img
-              id="mysteryImg"
-              src="assets/mystery.svg"
-              alt="Кто же именинник?"
-              class="mystery-img sparkle-hover"
-            />
+      <div class="surprise-zone" id="surpriseZone">
+        <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
+          <div class="frame-glow">
+            <div class="photo-bevel">
+              <!-- inline = всегда грузится, даже на Cloudflare -->
+              <svg class="mystery-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" aria-hidden="true">
+                <defs>
+                  <linearGradient id="mg" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#5c3d6e"/>
+                    <stop offset="100%" stop-color="#c23b6b"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="400" fill="url(#mg)"/>
+                <rect x="40" y="40" width="320" height="320" fill="none" stroke="#e6b84d" stroke-width="6" stroke-dasharray="16 10"/>
+                <text x="200" y="210" font-family="Impact,Arial,sans-serif" font-size="120" fill="#fff8f0" text-anchor="middle" opacity="0.95">?</text>
+                <text x="200" y="300" font-family="Tahoma,Arial,sans-serif" font-size="22" fill="#ffe8a3" text-anchor="middle">KTO?</text>
+              </svg>
+            </div>
           </div>
+          <span class="hint">??? CLICK ME ???</span>
+        </button>
+
+        <div id="reveal" class="reveal" hidden>
+          <p class="reveal-text">🎉 ЭТО ОНА!!! 🎉</p>
+          <div class="reveal-frame">
+            <div id="revealArt" class="reveal-art">
+              <svg class="reveal-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 400" role="img" aria-label="Именинница на кирпичах">
+                <defs>
+                  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#a8d4f0"/>
+                    <stop offset="100%" stop-color="#f5e6d3"/>
+                  </linearGradient>
+                </defs>
+                <rect width="520" height="400" fill="url(#sky)"/>
+                <g fill="#b55239" stroke="#7a3a28" stroke-width="1">
+                  <rect x="0" y="200" width="80" height="32"/><rect x="80" y="200" width="80" height="32"/>
+                  <rect x="40" y="232" width="80" height="32"/><rect x="120" y="232" width="80" height="32"/>
+                  <rect x="200" y="200" width="80" height="32"/><rect x="280" y="200" width="80" height="32"/>
+                  <rect x="360" y="200" width="80" height="32"/><rect x="440" y="200" width="80" height="32"/>
+                  <rect x="0" y="264" width="520" height="136"/>
+                </g>
+                <ellipse cx="260" cy="195" rx="42" ry="48" fill="#f0c9a8"/>
+                <path d="M218 190 Q260 145 302 190" fill="#5c3d2e"/>
+                <rect x="212" y="228" width="96" height="62" rx="8" fill="#7a7a8a"/>
+                <text x="260" y="258" font-size="9" fill="#e8e0ff" text-anchor="middle" font-family="Arial">#BELARUSFREEHORSES</text>
+                <rect x="222" y="290" width="76" height="44" fill="#f5f5f0" stroke="#555"/>
+                <line x1="248" y1="334" x2="238" y2="368" stroke="#666" stroke-width="7" stroke-linecap="round"/>
+                <line x1="272" y1="334" x2="282" y2="368" stroke="#666" stroke-width="7" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <img id="revealImg" class="reveal-photo" alt="Именинница" hidden />
+          </div>
+          <p class="maria-line">
+            <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
+            яяяяяю гада сии хер 🎤
+          </p>
+          <marquee class="reveal-marquee" scrollamount="8">
+            ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ КИРПИЧИ ★ ЛЮБОВЬ ★
+          </marquee>
         </div>
-        <span class="hint blink">??? CLICK ME ???</span>
-        <span class="hint-sub zoom-text">(один клик = сюрприз)</span>
-      </button>
+      </div>
 
-      <div id="reveal" class="reveal" hidden aria-live="polite">
-        <p class="reveal-text rainbow zoom-text">🎉 ЭТО ОНА!!! 🎉</p>
-        <div class="reveal-frame">
-          <img
-            id="revealImg"
-            src="assets/reveal.svg"
-            alt="Сюрприз — именинница!"
-            class="reveal-img"
-          />
+      <div class="fake-player">
+        <span class="play-icon">▶</span>
+        <span class="player-label">♫ Марияяяяя… (сюрприз)</span>
+        <div class="fake-eq" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
         </div>
-        <p class="maria-line shake">
-          <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
-          яяяяяю гада сии хер 🎤
-        </p>
-        <marquee class="reveal-marquee" scrollamount="10">
-          ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ КИРПИЧИ ★ ЛЮБОВЬ ★
-        </marquee>
       </div>
-    </div>
 
-    <div class="fake-player">
-      <span class="blink-hard">▶</span>
-      <span class="player-label">♫ Марияяяяя… (сюрприз)</span>
-      <div class="fake-eq" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
-      </div>
+      <nav class="guestbook-fake">
+        <a href="#" class="link-dead" onclick="return false">Гостевая</a>
+        <a href="#" class="link-dead" onclick="return false">Фотоальбом</a>
+        <a href="#" class="link-dead" onclick="return false">ICQ</a>
+      </nav>
     </div>
-
-    <table class="guestbook-fake" role="presentation">
-      <tr>
-        <td><a href="#" class="link-dead" onclick="return false">Гостевая книга</a></td>
-        <td><a href="#" class="link-dead" onclick="return false">Фотоальбом</a></td>
-        <td><a href="#" class="link-dead" onclick="return false">Контакты ICQ</a></td>
-      </tr>
-    </table>
   </main>
 
   <footer class="footer">
-    <marquee scrollamount="8" direction="left" class="footer-marquee">
-      made with 💖 FrontPage 2003 • GeoCities • ноль вкуса • 1024×768
-    </marquee>
-    <div class="web-badges">
-      <span class="badge-html">HTML</span>
-      <span class="badge-css">CSS</span>
-      <span class="badge-best">NOT VALID</span>
-    </div>
+    made with 💖 FrontPage 2003 · GeoCities · 1024×768
   </footer>
 
-  <audio id="cherAudio" preload="auto" loop>
+  <audio id="partyAudio" preload="auto" loop>
     <source src="assets/song.mp3" type="audio/mpeg" />
   </audio>
 
