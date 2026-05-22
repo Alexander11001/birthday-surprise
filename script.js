@@ -1,24 +1,44 @@
 const mysteryBtn = document.getElementById("mysteryBtn");
 const reveal = document.getElementById("reveal");
-const cherAudio = document.getElementById("cherAudio");
+const surpriseZone = document.getElementById("surpriseZone");
+const audio = document.getElementById("cherAudio");
 const welcomePopup = document.getElementById("welcomePopup");
 const closePopup = document.getElementById("closePopup");
 const visitorNum = document.getElementById("visitorNum");
 const revealImg = document.getElementById("revealImg");
 
-let revealed = false;
+const REVEAL_SVG = "assets/reveal.svg";
+const REVEAL_JPG = "assets/reveal.jpg";
 
-// Если положите assets/reveal.jpg — подменит SVG-заглушку
-const revealPhoto = new Image();
-revealPhoto.src = "assets/reveal.jpg";
-revealPhoto.onload = () => {
-  revealImg.src = "assets/reveal.jpg";
-};
+let revealed = false;
+let confettiTimer = null;
 
 visitorNum.textContent = String(42000 + Math.floor(Math.random() * 58000)).padStart(6, "0");
 
 closePopup.addEventListener("click", () => {
   welcomePopup.classList.add("hidden");
+});
+
+/** Подменяем SVG только если реальное фото есть на сервере */
+function loadOptionalPhoto() {
+  const probe = new Image();
+  probe.onload = () => {
+    if (probe.naturalWidth > 0) {
+      revealImg.src = REVEAL_JPG;
+    }
+  };
+  probe.onerror = () => {
+    revealImg.src = REVEAL_SVG;
+  };
+  probe.src = REVEAL_JPG;
+}
+
+loadOptionalPhoto();
+
+revealImg.addEventListener("error", () => {
+  if (revealImg.src.includes("reveal.jpg")) {
+    revealImg.src = REVEAL_SVG;
+  }
 });
 
 function spawnConfetti(count = 120) {
@@ -53,11 +73,25 @@ function screenFlash() {
   flash.addEventListener("animationend", () => flash.remove());
 }
 
-function playMaria() {
-  cherAudio.volume = 1;
-  cherAudio.currentTime = 0;
-  cherAudio.play().catch(() => {
-    console.warn("Браузер заблокировал звук — кликните ещё раз по странице.");
+function playSong() {
+  audio.volume = 1;
+  audio.currentTime = 0;
+  audio.play().catch(() => {
+    console.warn("Браузер заблокировал звук — ткните ещё раз по странице.");
+  });
+}
+
+function showReveal() {
+  mysteryBtn.hidden = true;
+  reveal.hidden = false;
+  reveal.classList.add("is-open");
+
+  revealImg.classList.remove("pop-in");
+  void revealImg.offsetWidth;
+  revealImg.classList.add("pop-in");
+
+  requestAnimationFrame(() => {
+    reveal.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 }
 
@@ -67,22 +101,23 @@ function revealSurprise() {
 
   welcomePopup.classList.add("hidden");
   document.body.classList.add("revealed");
-  reveal.classList.remove("hidden");
+
+  showReveal();
   screenFlash();
   spawnConfetti(150);
-  playMaria();
+  playSong();
 
   document.title = "🎉 MARIA!!! С ДНЁМ РОЖДЕНИЯ 🎉";
 
-  setInterval(() => {
-    if (revealed) spawnConfetti(30);
-  }, 2500);
+  if (!confettiTimer) {
+    confettiTimer = setInterval(() => spawnConfetti(25), 3000);
+  }
 }
 
 mysteryBtn.addEventListener("click", revealSurprise);
 
 document.addEventListener("mousemove", (e) => {
-  if (Math.random() > 0.82) {
+  if (Math.random() > 0.85) {
     const s = document.createElement("span");
     s.className = "sparkle-trail";
     s.textContent = ["✨", "⭐", "💫", "🌟"][Math.floor(Math.random() * 4)];
@@ -93,10 +128,6 @@ document.addEventListener("mousemove", (e) => {
   }
 });
 
-document.addEventListener(
-  "click",
-  () => {
-    if (revealed && cherAudio.paused) playMaria();
-  },
-  { once: false }
-);
+document.addEventListener("click", () => {
+  if (revealed && audio.paused) playSong();
+});

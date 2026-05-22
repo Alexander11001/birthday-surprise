@@ -19,7 +19,7 @@
 
   <header class="banner">
     <marquee scrollamount="18" direction="left" behavior="scroll">
-      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ BLONDIE — MARIA ★ НЕ ЗАКРЫВАЙ СТРАНИЦУ ★
+      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ MARIA ★ НЕ ЗАКРЫВАЙ СТРАНИЦУ ★
     </marquee>
     <marquee scrollamount="12" direction="right" behavior="alternate" class="banner-2">
       🔥🔥🔥 УГАДАЙ КТО 🔥🔥🔥 WWW.MARIA-BIRTHDAY.RU 🔥🔥🔥
@@ -61,46 +61,48 @@
       <span class="blink-hard">🚧</span>
     </div>
 
-    <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
-      <div class="frame-spin">
-        <div class="photo-bevel">
+    <div class="surprise-zone" id="surpriseZone">
+      <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
+        <div class="frame-spin">
+          <div class="photo-bevel">
+            <img
+              id="mysteryImg"
+              src="assets/mystery.svg"
+              alt="Кто же именинник?"
+              class="mystery-img sparkle-hover"
+            />
+          </div>
+        </div>
+        <span class="hint blink">??? CLICK ME ???</span>
+        <span class="hint-sub zoom-text">(один клик = сюрприз)</span>
+      </button>
+
+      <div id="reveal" class="reveal" hidden aria-live="polite">
+        <p class="reveal-text rainbow zoom-text">🎉 ЭТО ОНА!!! 🎉</p>
+        <div class="reveal-frame">
           <img
-            id="mysteryImg"
-            src="assets/mystery.svg"
-            alt="Кто же именинник?"
-            class="mystery-img sparkle-hover"
+            id="revealImg"
+            src="assets/reveal.svg"
+            alt="Сюрприз — именинница!"
+            class="reveal-img"
           />
         </div>
-      </div>
-      <span class="hint blink">??? CLICK ME ???</span>
-      <span class="hint-sub zoom-text">(один клик = сюрприз)</span>
-    </button>
-
-    <div class="fake-player">
-      <span class="blink-hard">▶</span>
-      <span class="player-label">Blondie — Maria (Bootleg)</span>
-      <div class="fake-eq" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span>
+        <p class="maria-line shake">
+          <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
+          яяяяяю гада сии хер 🎤
+        </p>
+        <marquee class="reveal-marquee" scrollamount="10">
+          ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ КИРПИЧИ ★ ЛЮБОВЬ ★
+        </marquee>
       </div>
     </div>
 
-    <div id="reveal" class="reveal hidden" aria-live="polite">
-      <p class="reveal-text rainbow zoom-text">🎉 ЭТО ОНА!!! 🎉</p>
-      <div class="reveal-frame">
-        <img
-          id="revealImg"
-          src="assets/reveal.svg"
-          alt="Сюрприз!"
-          class="reveal-img bounce-in sparkle-hover"
-        />
+    <div class="fake-player">
+      <span class="blink-hard">▶</span>
+      <span class="player-label">♫ Марияяяяя… (сюрприз)</span>
+      <div class="fake-eq" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
       </div>
-      <p class="maria-line shake">
-        <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
-        яяяяяю гада сии хер 🎤
-      </p>
-      <marquee class="reveal-marquee" scrollamount="10">
-        ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ BLONDIE ★ КИРПИЧИ ★ ЛЮБОВЬ ★
-      </marquee>
     </div>
 
     <table class="guestbook-fake" role="presentation">
