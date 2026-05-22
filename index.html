@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="be">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>★ Угадайте у кого ДР?! ★</title>
+  <title>★ Адгадайце, у каго ДН?! ★</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -13,92 +15,92 @@
 
   <div class="ie-bar">
     <span class="spin-at" aria-hidden="true">@</span>
-    <span class="blink-hard">Лучше всего в Internet Explorer 6.0</span>
-    <span class="visitor">Посетитель № <span id="visitorNum">000042</span></span>
+    <span class="blink-hard">Найлепей у Internet Explorer 6.0</span>
+    <span class="visitor">Наведвальнік № <span id="visitorNum">000042</span></span>
   </div>
 
   <header class="banner">
     <marquee scrollamount="16" direction="left">
-      ★ СЕГОДНЯ ЧЬЁ-ТО ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ УГАДАЙ КТО ★
+      ★ СЁННЯ ЧЫЁСЬ ДЗЕНЬ НАРАДЖЭННЯ ★ КЛІКНІ НА КАРЦІНКУ ★ АДГАДАЙ ХТО ★
     </marquee>
     <marquee scrollamount="10" direction="right" behavior="alternate" class="banner-2">
-      🔥 СЮРПРИЗ ЖДЁТ ВНУТРИ 🔥 НЕ ПОДГЛЯДЫВАЙ 🔥
+      🔥 СЮРПРЫЗ ЧАКАЕ ЎСУТРЫ 🔥 НЕ ПАДГЛЯДВАЙ 🔥
     </marquee>
   </header>
 
   <main class="stage">
     <div class="popup-fake" id="welcomePopup">
-      <button type="button" class="popup-close" id="closePopup" aria-label="Закрыть">✕</button>
-      <p class="popup-title blink-hard">ДОБРО ПОЖАЛОВАТЬ!</p>
-      <p>Вы <b>999 999</b>-й гость!</p>
-      <p class="popup-small">Закрой и жми на картинку ↓</p>
+      <button type="button" class="popup-close" id="closePopup" aria-label="Зачыніць">✕</button>
+      <p class="popup-title blink-hard">САРОКА ЗАПРАШАЕМ!</p>
+      <p>Ты <b>999 999</b>-ы госць!</p>
+      <p class="popup-small">Зачыні і націсні на карцінку ↓</p>
     </div>
 
-    <h1 class="title glitch" data-text="Угадайте у кого сегодня день рождения?!">
-      Угадайте у кого сегодня день рождения?!
+    <h1 class="title glitch" data-text="Адгадайце, у каго сёння дзень нараджэння?!">
+      Адгадайце, у каго сёння дзень нараджэння?!
     </h1>
 
     <hr class="rainbow-hr" />
 
     <p class="subtitle wobble">
       <span class="spin-emoji">🎁</span>
-      жми на картинку
+      націсні на карцінку
       <span class="spin-emoji reverse">🎂</span>
     </p>
 
     <div class="surprise-zone">
-      <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Открыть сюрприз">
+      <button type="button" class="mystery-btn" id="mysteryBtn" aria-label="Адкрыць сюрпрыз">
         <div class="frame-spin">
           <div class="photo-bevel">
             <img
               src="assets/mystery.svg"
-              alt="Кто именинник?"
+              alt="Хто іменіннік?"
               class="mystery-img"
             />
           </div>
         </div>
-        <span class="hint blink">??? CLICK ME ???</span>
+        <span class="hint blink">??? КЛІКНІ СЮДЫ ???</span>
       </button>
 
       <div id="reveal" class="reveal" hidden>
         <div id="congratsBurst" class="congrats-burst">
-          <p class="congrats-line line-1">ПОЗДРАВЛЯЮ!!!</p>
-          <p class="congrats-line line-2">Счастья!</p>
-          <p class="congrats-line line-3">Здоровья!</p>
-          <p class="congrats-line line-4">Удачи во всём! ✨</p>
+          <p class="congrats-line line-1">ВІНШАЮ!!!</p>
+          <p class="congrats-line line-2">Шчасця!</p>
+          <p class="congrats-line line-3">Здароўя!</p>
+          <p class="congrats-line line-4">Поспеху ва ўсім! ✨</p>
         </div>
-        <p class="reveal-text rainbow">🎉 ЭТО ОНА!!! 🎉</p>
+        <p class="reveal-text rainbow">🎉 ГЭТА ЯНА!!! 🎉</p>
         <div class="reveal-frame">
           <img
             src="assets/reveal.png"
-            alt="Именинница"
+            alt="Іменінніца"
             class="reveal-img pop-in"
             width="520"
             height="694"
           />
         </div>
         <p class="maria-line shake">
-          <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">и</span><span class="wave-letter">я</span>
+          <span class="wave-letter">М</span><span class="wave-letter">а</span><span class="wave-letter">р</span><span class="wave-letter">і</span><span class="wave-letter">я</span>
           яяяяяю гада сии хер 🎤
         </p>
         <marquee class="reveal-marquee" scrollamount="9">
-          ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ ПОЗДРАВЛЯЮ ★ СЧАСТЬЯ ★ ЗДОРОВЬЯ ★
+          ★ З ДНЁМ НАРАДЖЭННЯ ★ MARIA ★ ВІНШАЮ ★ ШЧАСЦЯ ★ ЗДАРОЎЯ ★
         </marquee>
       </div>
     </div>
 
     <div class="fake-player">
       <span class="blink-hard">▶</span>
-      <span class="player-label player-label--pre">♫ Скоро будет сюрприз…</span>
-      <span class="player-label player-label--post">♫ Марияяяяя… (сюрприз)</span>
+      <span class="player-label player-label--pre">♫ Хутка будзе сюрпрыз…</span>
+      <span class="player-label player-label--post">♫ Маріяяяяя… (сюрпрыз)</span>
       <div class="fake-eq" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
 
     <nav class="guestbook-fake">
-      <a href="#" class="link-dead" onclick="return false">Гостевая</a>
-      <a href="#" class="link-dead" onclick="return false">Фотоальбом</a>
+      <a href="#" class="link-dead" onclick="return false">Гасцёўная</a>
+      <a href="#" class="link-dead" onclick="return false">Фотаальбом</a>
       <a href="#" class="link-dead" onclick="return false">ICQ</a>
     </nav>
   </main>

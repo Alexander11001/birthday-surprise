@@ -102,7 +102,7 @@ function revealSurprise() {
   spawnConfetti(120);
   fireworkShow(10);
   playSong();
-  document.title = "🎉 С ДНЁМ РОЖДЕНИЯ, MARIA! 🎉";
+  document.title = "🎉 З ДНЁМ НАРАДЖЭННЯ, MARIA! 🎉";
 
   if (!confettiTimer) {
     confettiTimer = setInterval(() => spawnConfetti(18), 3500);

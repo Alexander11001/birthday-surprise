@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Press+Start+2P&display=swap");
+/* Rubik: поўная падтрымка беларускай (і, ё, ў) */
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=Rubik+Mono:wght@500;700&display=swap");
 
 :root {
   --hot-pink: #ff3399;
@@ -16,7 +17,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Comic Neue", cursive, sans-serif;
+  font-family: "Rubik", "Segoe UI", Tahoma, Arial, sans-serif;
   background:
     linear-gradient(135deg, #ffe8f0 0%, #fff5d6 40%, #e8f4ff 100%);
   color: #2a1520;
@@ -57,7 +58,7 @@ body {
   padding: 7px 12px;
   background: linear-gradient(#2a3a6e, #1a2548);
   color: #a8d8ff;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: "Rubik", Tahoma, Arial, sans-serif;
   font-size: 12px;
   border-bottom: 3px solid var(--sun);
   z-index: 10;
@@ -73,7 +74,7 @@ body {
 
 .visitor {
   color: #7fff7f;
-  font-family: "Press Start 2P", monospace;
+  font-family: "Rubik Mono", "Rubik", "Courier New", monospace;
   font-size: 9px;
 }
 
@@ -91,7 +92,7 @@ body {
 }
 
 .banner marquee {
-  font-family: "Press Start 2P", monospace;
+  font-family: "Rubik Mono", "Rubik", "Courier New", monospace;
   font-size: clamp(7px, 1.8vw, 10px);
   color: #fff8e0;
   text-shadow: 1px 1px #000;
@@ -121,7 +122,7 @@ body {
   padding: 0.7rem 2rem 0.7rem 0.85rem;
   background: #c0c0c0;
   border: 3px outset #eee;
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: "Rubik", Tahoma, Arial, sans-serif;
   font-size: 13px;
   position: relative;
 }
@@ -143,7 +144,7 @@ body {
 }
 
 .title {
-  font-family: "Press Start 2P", monospace;
+  font-family: "Rubik Mono", "Rubik", "Courier New", monospace;
   font-size: clamp(11px, 3.2vw, 20px);
   text-align: center;
   line-height: 1.65;
@@ -263,7 +264,7 @@ body {
 .hint {
   display: block;
   margin-top: 8px;
-  font-family: "Press Start 2P", monospace;
+  font-family: "Rubik Mono", "Rubik", "Courier New", monospace;
   font-size: 10px;
   color: var(--hot-pink);
 }
@@ -301,7 +302,7 @@ body {
 }
 
 .reveal-text {
-  font-family: Impact, Arial Black, sans-serif;
+  font-family: "Rubik", Impact, Arial, sans-serif;
   font-size: 1.8rem;
   margin: 0;
 }
@@ -447,7 +448,7 @@ body.revealed .player-label--post {
   border: 2px outset #eee;
   padding: 6px 14px;
   font-size: 13px;
-  font-family: Arial, sans-serif;
+  font-family: "Rubik", Arial, sans-serif;
   text-decoration: underline;
 }
 
@@ -506,7 +507,7 @@ body.revealed .fake-eq span {
 }
 
 .congrats-line {
-  font-family: Impact, Arial Black, sans-serif;
+  font-family: "Rubik", Impact, Arial, sans-serif;
   margin: 0.15rem 0;
   opacity: 0;
   transform: scale(0.5) translateY(20px);
