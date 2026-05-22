@@ -9,6 +9,7 @@
 <body>
   <div class="noise" aria-hidden="true"></div>
   <div class="stars" aria-hidden="true"></div>
+  <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
 
   <div class="ie-bar">
     <span class="spin-at" aria-hidden="true">@</span>
@@ -18,17 +19,17 @@
 
   <header class="banner">
     <marquee scrollamount="16" direction="left">
-      ★ СЕГОДНЯ ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ MARIA ★
+      ★ СЕГОДНЯ ЧЬЁ-ТО ДЕНЬ РОЖДЕНИЯ ★ КЛИКНИ НА КАРТИНКУ ★ УГАДАЙ КТО ★
     </marquee>
     <marquee scrollamount="10" direction="right" behavior="alternate" class="banner-2">
-      🔥 УГАДАЙ КТО ИМЕНИННИК 🔥 WWW.MARIA-BIRTHDAY.RU 🔥
+      🔥 СЮРПРИЗ ЖДЁТ ВНУТРИ 🔥 НЕ ПОДГЛЯДЫВАЙ 🔥
     </marquee>
   </header>
 
   <main class="stage">
     <div class="popup-fake" id="welcomePopup">
       <button type="button" class="popup-close" id="closePopup" aria-label="Закрыть">✕</button>
-      <p class="popup-title blink-hard">ПОЗДРАВЛЯЕМ!</p>
+      <p class="popup-title blink-hard">ДОБРО ПОЖАЛОВАТЬ!</p>
       <p>Вы <b>999 999</b>-й гость!</p>
       <p class="popup-small">Закрой и жми на картинку ↓</p>
     </div>
@@ -60,6 +61,12 @@
       </button>
 
       <div id="reveal" class="reveal" hidden>
+        <div id="congratsBurst" class="congrats-burst">
+          <p class="congrats-line line-1">ПОЗДРАВЛЯЮ!!!</p>
+          <p class="congrats-line line-2">Счастья!</p>
+          <p class="congrats-line line-3">Здоровья!</p>
+          <p class="congrats-line line-4">Удачи во всём! ✨</p>
+        </div>
         <p class="reveal-text rainbow">🎉 ЭТО ОНА!!! 🎉</p>
         <div class="reveal-frame">
           <img
@@ -75,14 +82,15 @@
           яяяяяю гада сии хер 🎤
         </p>
         <marquee class="reveal-marquee" scrollamount="9">
-          ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ КИРПИЧИ ★ ЛЮБОВЬ ★
+          ★ С ДНЁМ РОЖДЕНИЯ ★ MARIA ★ ПОЗДРАВЛЯЮ ★ СЧАСТЬЯ ★ ЗДОРОВЬЯ ★
         </marquee>
       </div>
     </div>
 
     <div class="fake-player">
       <span class="blink-hard">▶</span>
-      <span class="player-label">♫ Марияяяяя… (сюрприз)</span>
+      <span class="player-label player-label--pre">♫ Скоро будет сюрприз…</span>
+      <span class="player-label player-label--post">♫ Марияяяяя… (сюрприз)</span>
       <div class="fake-eq" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span>
       </div>

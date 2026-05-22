@@ -1,6 +1,8 @@
 const mysteryBtn = document.getElementById("mysteryBtn");
 const reveal = document.getElementById("reveal");
 const revealImg = document.querySelector(".reveal-img");
+const congratsBurst = document.getElementById("congratsBurst");
+const fxLayer = document.getElementById("fxLayer");
 const audio = document.getElementById("partyAudio");
 const welcomePopup = document.getElementById("welcomePopup");
 const closePopup = document.getElementById("closePopup");
@@ -8,6 +10,7 @@ const visitorNum = document.getElementById("visitorNum");
 
 let revealed = false;
 let confettiTimer = null;
+let fireworkTimer = null;
 
 visitorNum.textContent = String(42000 + Math.floor(Math.random() * 58000)).padStart(6, "0");
 
@@ -30,6 +33,46 @@ function spawnConfetti(count = 80) {
   }
 }
 
+function launchFirework(x, y) {
+  const burst = document.createElement("div");
+  burst.className = "firework";
+  burst.style.left = x + "px";
+  burst.style.top = y + "px";
+  const colors = ["#ff3366", "#ffcc00", "#33ccff", "#ff9933", "#cc66ff", "#fff"];
+  const sparks = 14 + Math.floor(Math.random() * 10);
+
+  for (let i = 0; i < sparks; i++) {
+    const spark = document.createElement("span");
+    spark.className = "spark";
+    const angle = (Math.PI * 2 * i) / sparks;
+    const dist = 40 + Math.random() * 50;
+    spark.style.setProperty("--tx", Math.cos(angle) * dist + "px");
+    spark.style.setProperty("--ty", Math.sin(angle) * dist + "px");
+    spark.style.background = colors[i % colors.length];
+    spark.style.animationDelay = Math.random() * 0.15 + "s";
+    burst.appendChild(spark);
+  }
+
+  fxLayer.appendChild(burst);
+  setTimeout(() => burst.remove(), 1200);
+}
+
+function fireworkShow(rounds = 8) {
+  for (let i = 0; i < rounds; i++) {
+    setTimeout(() => {
+      const x = window.innerWidth * (0.15 + Math.random() * 0.7);
+      const y = window.innerHeight * (0.12 + Math.random() * 0.45);
+      launchFirework(x, y);
+    }, i * 220);
+  }
+}
+
+function playCongratsBurst() {
+  congratsBurst.classList.remove("is-active");
+  void congratsBurst.offsetWidth;
+  congratsBurst.classList.add("is-active");
+}
+
 function playSong() {
   audio.volume = 1;
   audio.currentTime = 0;
@@ -45,6 +88,7 @@ function showReveal() {
   void revealImg.offsetWidth;
   revealImg.classList.add("pop-in");
 
+  playCongratsBurst();
   reveal.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
@@ -55,12 +99,16 @@ function revealSurprise() {
   welcomePopup.classList.add("hidden");
   document.body.classList.add("revealed");
   showReveal();
-  spawnConfetti(100);
+  spawnConfetti(120);
+  fireworkShow(10);
   playSong();
   document.title = "🎉 С ДНЁМ РОЖДЕНИЯ, MARIA! 🎉";
 
   if (!confettiTimer) {
-    confettiTimer = setInterval(() => spawnConfetti(20), 3500);
+    confettiTimer = setInterval(() => spawnConfetti(18), 3500);
+  }
+  if (!fireworkTimer) {
+    fireworkTimer = setInterval(() => fireworkShow(4), 4500);
   }
 }
 

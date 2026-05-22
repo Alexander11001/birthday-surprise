@@ -395,7 +395,21 @@ body {
   font-size: 12px;
 }
 
-.player-label { flex: 1; }
+.player-label {
+  flex: 1;
+}
+
+.player-label--post {
+  display: none;
+}
+
+body.revealed .player-label--pre {
+  display: none;
+}
+
+body.revealed .player-label--post {
+  display: inline;
+}
 
 .fake-eq {
   display: flex;
@@ -446,6 +460,88 @@ body {
 
 body.revealed .fake-eq span {
   animation-duration: 0.2s;
+}
+
+.fx-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 800;
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+
+.spark {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 6px currentColor;
+  animation: spark-fly 0.9s ease-out forwards;
+}
+
+@keyframes spark-fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+.congrats-burst {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.congrats-line {
+  font-family: Impact, Arial Black, sans-serif;
+  margin: 0.15rem 0;
+  opacity: 0;
+  transform: scale(0.5) translateY(20px);
+}
+
+.congrats-burst.is-active .line-1 {
+  animation: congrats-pop 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) 0.1s forwards;
+  color: var(--hot-pink);
+  font-size: 2rem;
+  text-shadow: 2px 2px var(--sun);
+}
+
+.congrats-burst.is-active .line-2 {
+  animation: congrats-pop 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) 0.35s forwards;
+  color: #ff6600;
+  font-size: 1.6rem;
+}
+
+.congrats-burst.is-active .line-3 {
+  animation: congrats-pop 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) 0.6s forwards;
+  color: #3399ff;
+  font-size: 1.6rem;
+}
+
+.congrats-burst.is-active .line-4 {
+  animation: congrats-pop 0.6s cubic-bezier(0.34, 1.5, 0.64, 1) 0.85s forwards;
+  color: #9933cc;
+  font-size: 1.3rem;
+}
+
+@keyframes congrats-pop {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .confetti-piece {
